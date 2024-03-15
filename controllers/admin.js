@@ -63,7 +63,7 @@ exports.deleteMessage = async (req, res, next) => {
 
         await message.deleteOne();
 
-        const user = await User.findById(req.userId);
+        const user = await User.findById(message.username.toString());
 
         user.messages.remove(req.params.id);
 

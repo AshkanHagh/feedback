@@ -8,7 +8,7 @@ router.get('/', adminControl.getMessages);
 
 router.get('/:id', adminControl.getSingleMessage);
 
-router.delete('/:id', isAuth, adminControl.deleteMessage);
+router.delete('/:id', /*isAuth*/ adminControl.deleteMessage);
 
 
 module.exports = router;
