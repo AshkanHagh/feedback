@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const authRouter = require('./routes/auth');
 const messageRouter = require('./routes/message');
+const adminRouter = require('./routes/admin');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(cors());
 
 app.use('/auth', authRouter);
 app.use('/contact', messageRouter);
+app.use('/admin', adminRouter);
 
 
 app.use((error, req, res, next) => {
