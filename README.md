@@ -12,7 +12,9 @@ Features :
 * Postman testing
 * Express validation
 
+### Description
 
+In this project I am making a simple REST API where user can send messages and admin can see/delete messages
 
 ### Install packages
 ```
