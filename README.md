@@ -1,20 +1,14 @@
-# A simple management panel for user messages, REST API With [Node](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/)
+# `Updating...`, REST API With [Node](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/)
 
 <img src="image/api.png" max-width="100%"/>
 
 Features :
 
-* MVC Architecture
-* MongoDB & Mongoose connect, Database creation
-* JsonWebToken  based authentication
-* User message save on Database
-* Admin management panel for user messages
-* Postman testing
-* Express validation
+* Updating
 
 ### Description
 
-In this project I am making a simple REST API where user can send messages and admin can see/delete messages
+* Updating
 
 ### Install packages
 ```
@@ -25,9 +19,10 @@ npm i
 ``` javascript
 MONGODB_URL = 
 PORT = 
+JWT_SECRET =
 ```
 
 ### Start the app
 ```
-npm start
+npm run dev
 ```

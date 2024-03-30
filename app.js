@@ -3,9 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const authRouter = require('./routes/auth');
-const messageRouter = require('./routes/message');
-const adminRouter = require('./routes/admin');
+// routes
 
 const app = express();
 
@@ -16,9 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-app.use('/auth', authRouter);
-app.use('/contact', messageRouter);
-app.use('/admin', adminRouter);
+// routes
 
 
 app.use((error, req, res, next) => {
