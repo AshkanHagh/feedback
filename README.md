@@ -1,6 +1,6 @@
 # `Updating...`, REST API With [Node](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/)
 
-<img src="image/api.png" max-width="100%"/>
+<img src="" max-width="100%"/>
 
 Features :
 
