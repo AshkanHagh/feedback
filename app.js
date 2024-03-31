@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const authRouter = require('./routes/auth');
+const feedbackRouter = require('./routes/feedback');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(cors());
 
 
 app.use('/api/auth', authRouter);
+app.use('/api/contact', feedbackRouter);
 
 
 app.use((error, req, res, next) => {
