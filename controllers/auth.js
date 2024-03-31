@@ -85,7 +85,7 @@ exports.login = async (req, res, next) => {
             throw error;
         }
 
-        const token = jwt.sign({email : user.email, userId : user._id}, process.env.JWT_SECRET, {expiresIn : '1d'});
+        const token = jwt.sign({email : user.email, userId : user._id, isAdmin: user.isAdmin}, process.env.JWT_SECRET, {expiresIn : '1d'});
 
         res.status(201).json({message : 'Welcome', AccountId : user._id, token});
 

@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
   const token = authHeader.split(" ")[1];
   let decodedToken;
   try {
-    decodedToken = jwt.verify(token, "Admin Messages");
+    decodedToken = jwt.verify(token, process.env.JWT_SECRET);
   } catch (error) {
     error.statusCode = 500;
     throw error;
@@ -25,5 +25,7 @@ module.exports = (req, res, next) => {
   }
   
   req.userId = decodedToken.userId;
+  req.isAdmin = decodedToken.isAdmin;
+  
   next();
 };
