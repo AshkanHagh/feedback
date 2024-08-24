@@ -1,33 +1,15 @@
-# Feedbacks Management, REST API With [Node](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/)
+# feedback
 
-<img src="image/feedback.png" max-width="100%"/>
+To install dependencies:
 
-Features :
-
-* JsonWebToken based Authentication
-* Feedback functionality
-* Admin auth
-* Simple Admin Dashboard
-
-### Description
-
-A simple REST API for user feedback with jwt auth and admin dashboard for managing users and feedbacks
-
-### Install packages
-```
-npm i
+```bash
+bun install
 ```
 
-### Setup .env file
-``` javascript
-MONGODB_URL = 
-PORT = 
-JWT_SECRET =
+To run:
+
+```bash
+bun run src/server.ts
 ```
 
-### Start the app
-```
-npm run dev
-```
-
-<i>Ashkan<i>
+This project was created using `bun init` in bun v1.1.22. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
