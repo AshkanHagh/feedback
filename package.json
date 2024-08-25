@@ -2,20 +2,33 @@
   "name": "feedback",
   "module": "src/server.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/server.ts",
+    "db:push": "bunx prisma db push",
+    "sentry:build": "bunx tsc && bun run sentry:sourcemaps",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org haghdoost --project feedback ./dist && sentry-cli sourcemaps upload --org haghdoost --project feedback ./dist"
+  },
   "devDependencies": {
     "@types/bun": "latest",
-    "prisma": "^5.18.0",
-    "typescript": "^5.5.4",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/nodemailer": "^6.4.15",
     "@typescript-eslint/eslint-plugin": "^8.2.0",
     "@typescript-eslint/parser": "^8.2.0",
     "eslint": "^9.9.0",
     "eslint-plugin-import": "^2.29.1",
     "globals": "^15.9.0",
+    "prisma": "^5.18.0",
+    "typescript": "^5.5.4",
     "typescript-eslint": "^8.1.0"
   },
   "dependencies": {
+    "@prisma/client": "^5.18.0",
+    "@sentry/bun": "^8.26.0",
+    "@sentry/cli": "^2.33.1",
     "hono": "^4.5.8",
     "ioredis": "^5.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.14",
     "zod": "^3.23.8"
   }
 }

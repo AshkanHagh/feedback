@@ -25,7 +25,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-    "types": ["bun-types", "node"]
+    "types": ["bun-types", "node"],
+
+    // Set `sourceRoot` to  "/" to strip the build path prefix
+    // from generated source code references.
+    // This improves issue grouping in Sentry.
+    "sourceRoot": "/"
   },
   "include": ["./**/*"],
   "exclude": ["node_modules", "dist"]
