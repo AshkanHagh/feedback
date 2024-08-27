@@ -31,6 +31,6 @@ export const validationMiddleware = <S>(source : ValidationSource, schema : ZodS
     };
 }
 
-const validate = async (data : unknown, schema : ZodSchema) : Promise<z.SafeParseReturnType<unknown, unknown>> => {
+export const validate = async (data : unknown, schema : ZodSchema) : Promise<z.SafeParseReturnType<unknown, unknown>> => {
     return schema.safeParse(data)
 };

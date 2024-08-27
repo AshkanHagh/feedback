@@ -17,7 +17,10 @@ declare global {
       readonly SMTP_SERVICE : string;
       readonly SMTP_MAIL : string;
       readonly SMTP_PASSWORD : string;
-      readonly TIMEOUT_SEC : string;
+      readonly TIMEOUT_SEC : number;
+      readonly CLOUDINARY_CLOUD_NAME : string;
+      readonly CLOUDINARY_API_KEY : string;
+      readonly CLOUDINARY_API_SECRET : string;
     }
   }
 }

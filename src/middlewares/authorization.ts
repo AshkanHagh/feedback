@@ -3,7 +3,7 @@ import { decodeToken, type DecodedToken, createAccessTokenInvalidError, createLo
     createForbiddenError 
 } from '../utils';
 import { hgetall } from '../cache';
-import type { Users } from '../types';
+import type { User } from '../types';
 import { z } from 'zod';
 
 const tokenSchema = z.string().trim().regex(/^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$/, 
@@ -24,8 +24,8 @@ const decodeAndValidateToken = (token : string) : DecodedToken => {
     return decodedToken;
 };
 
-const fetchUserInfo = async (userId : string): Promise<Users> => {
-    const user : Users = await hgetall<Users>(`user:${userId}`, 604800);
+const fetchUserInfo = async (userId : string): Promise<User> => {
+    const user : User = await hgetall<User>(`user:${userId}`, 604800);
     if (!user || Object.keys(user).length <= 0) throw createLoginRequiredError();
     return user;
 }
@@ -33,15 +33,15 @@ const fetchUserInfo = async (userId : string): Promise<Users> => {
 export const isAuthenticated = CatchAsyncError(async (context : Context, next : Next) : Promise<void> => {
     const token : string = extractToken(context.req.header('authorization'));
     const decodedToken : DecodedToken = decodeAndValidateToken(token);
-    const user : Users = await fetchUserInfo(decodedToken.id);
+    const user : User = await fetchUserInfo(decodedToken.id);
     
     context.set('user', user);
     await next();
 });
 
-export const authorizedRoles = (...roles : Array<Users['role']>) => {
+export const authorizedRoles = (...roles : Array<User['role']>) => {
     return CatchAsyncError(async (context : Context, next : Next) => {
-        const currentUserDetail : Users = context.get('user') as Users;
+        const currentUserDetail : User = context.get('user') as User;
         if(!roles.includes(currentUserDetail?.role)) throw createForbiddenError();
         await next();
     });

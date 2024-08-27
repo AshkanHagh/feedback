@@ -1,1 +1,1 @@
-export type { Users, TicketsStatus, SupportTickets } from '@prisma/client';
+export type { User, Ticket, Comment } from '@prisma/client';

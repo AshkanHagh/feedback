@@ -25,10 +25,13 @@
     "@prisma/client": "^5.18.0",
     "@sentry/bun": "^8.26.0",
     "@sentry/cli": "^2.33.1",
+    "cloudinary": "^2.4.0",
+    "fast-sort": "^3.4.1",
     "hono": "^4.5.8",
     "ioredis": "^5.4.1",
     "jsonwebtoken": "^9.0.2",
     "nodemailer": "^6.9.14",
+    "p-limit": "^6.1.0",
     "zod": "^3.23.8"
   }
 }
