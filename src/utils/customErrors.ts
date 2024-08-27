@@ -12,7 +12,7 @@ export const createBadRequestError = (message : string = 'Bad request') => {
     return new ErrorHandler(message, 400);
 };
 
-export const createTimeoutError = (message : string = 'Request timeout after waiting 3.5 seconds. Please try again later') => {
+export const createTimeoutError = (message : string = `Request timeout after waiting ${process.env.TIMEOUT_SEC / 1000} seconds. Please try again later`) => {
     return new ErrorHandler(message, 408);
 };
 
