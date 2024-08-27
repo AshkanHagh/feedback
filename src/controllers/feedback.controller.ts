@@ -45,7 +45,7 @@ export const sendTicket = CatchAsyncError(async (context : Context) => {
 
     const { title, description, department, images } = zodValidationResult.data as Omit<Ticket, 'images'> & {images : File[]};
     const ticketDetail = await prisma.ticket.create({
-        data : {title, description, department, images : images ? await uploadImage(images) : [], userId : id}
+        data : {title, description, department, images : images ? await uploadImage(images) : [], userId : currentUserId}
     });
 
     cacheEvent.emit('insert_user_ticket', currentUserId, ticketDetail);
@@ -127,5 +127,5 @@ export const myTickets = CatchAsyncError(async (context : Context) => {
     : await prisma.ticket.findMany({
         where : {userId : currentUserId}, orderBy : {createdAt : 'desc'}, take : +limit, skip : +startIndex
     });
-    return context.json({success : true, ticketsDetail : sortedTicketDetails});
+    return context.json({success : true, ticketsDetail : ticketDetail});
 });
