@@ -1,12 +1,10 @@
 {
-    "rewrites" : [
-        {"source" : "/api/(.*)", "destination" : "/api"},
-        {"source" : "/(.*)", "destination" : "/api"}
-    ],
+    "version" : 2,
     "builds" : [
-        {"src" : "Dockerfile", "use" : "@vercel/docker"}
+        { "src" : "Dockerfile", "use" : "@vercel/docker" }
     ],
     "routes" : [
-        {"src" : "/(.*)", "dest" : "/api/$1"}
+        { "src" : "/api/(.*)", "dest" : "/api/$1" },
+        { "src" : "/(.*)", "dest" : "/api" }
     ]
-}
+  }
