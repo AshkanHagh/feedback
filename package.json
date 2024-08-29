@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/server.ts",
+    "start" : "bun src/server.ts",
     "db:generate": "bunx prisma generate",
     "db:push": "bunx prisma db push",
     "sentry:build": "bunx tsc && bun run sentry:sourcemaps",
