@@ -1,0 +1,1 @@
+export type { User, Ticket, Comment } from '@prisma/client';
