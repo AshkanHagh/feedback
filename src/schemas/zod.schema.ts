@@ -41,3 +41,8 @@ export const openTicketSchema = z.object({
     ticketId : z.string({message : 'Ticket id is required'})
 });
 export type OpenTicketSchema = z.infer<typeof openTicketSchema>;
+
+export const sendCommentSchema = z.object({
+    content : z.string().min(1)
+});
+export type SendCommentSchema = z.infer<typeof sendCommentSchema>;
